@@ -1,0 +1,18 @@
+# Logfile created on 2014-11-23 16:50:21 -0600 by logger.rb/44203
+I, [2014-11-23T16:50:21.910421 #11446]  INFO -- : 0:  i18n (0.6.11) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/i18n-0.6.11.gemspec
+I, [2014-11-23T16:50:21.910923 #11446]  INFO -- : 0:  json (1.8.1) from /Users/luisloya/.rvm/rubies/ruby-2.1.0/lib/ruby/gems/2.1.0/specifications/default/json-1.8.1.gemspec
+I, [2014-11-23T16:50:24.245348 #11446]  INFO -- : 0:  minitest (5.4.3) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/minitest-5.4.3.gemspec
+I, [2014-11-23T16:50:24.245726 #11446]  INFO -- : 0:  thread_safe (0.3.4) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/thread_safe-0.3.4.gemspec
+I, [2014-11-23T16:50:24.245984 #11446]  INFO -- : 0:  tzinfo (1.2.2) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/tzinfo-1.2.2.gemspec
+I, [2014-11-23T16:50:28.164337 #11446]  INFO -- : 0:  activesupport (4.1.8) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/activesupport-4.1.8.gemspec
+I, [2014-11-23T16:50:28.164702 #11446]  INFO -- : 0:  builder (3.2.2) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/builder-3.2.2.gemspec
+I, [2014-11-23T16:50:29.930430 #11446]  INFO -- : 0:  activemodel (4.1.8) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/activemodel-4.1.8.gemspec
+I, [2014-11-23T16:50:29.930806 #11446]  INFO -- : 0:  arel (5.0.1.20140414130214) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/arel-5.0.1.20140414130214.gemspec
+I, [2014-11-23T16:50:35.183704 #11446]  INFO -- : 0:  activerecord (4.1.8) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/activerecord-4.1.8.gemspec
+I, [2014-11-23T16:50:35.184020 #11446]  INFO -- : 0:  pg (0.17.1) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/pg-0.17.1.gemspec
+I, [2014-11-23T16:50:35.184225 #11446]  INFO -- : 0:  rack (1.5.2) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/rack-1.5.2.gemspec
+I, [2014-11-23T16:50:36.430343 #11446]  INFO -- : 0:  rack-protection (1.5.3) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/rack-protection-1.5.3.gemspec
+I, [2014-11-23T16:50:36.430727 #11446]  INFO -- : 0:  tilt (1.4.1) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/tilt-1.4.1.gemspec
+I, [2014-11-23T16:50:36.430997 #11446]  INFO -- : 0:  sinatra (1.4.5) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/sinatra-1.4.5.gemspec
+I, [2014-11-23T16:50:37.488463 #11446]  INFO -- : 0:  sinatra-activerecord (2.0.3) from /Users/luisloya/.rvm/gems/ruby-2.1.0/specifications/sinatra-activerecord-2.0.3.gemspec
+I, [2014-11-23T16:50:37.488797 #11446]  INFO -- : 0:  bundler (1.5.1) from /Users/luisloya/.rvm/gems/ruby-2.1.0@global/specifications/bundler-1.5.1.gemspec
