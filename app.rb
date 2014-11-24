@@ -32,8 +32,20 @@ get '/profiles/:profile/edit' do
   erb :editProfile
 end
 
-get '/students/new' do
+get '/classrooms' do
+  erb :classrooms
+end
+
+post '/classrooms' do
+
+end
+
+get '/classrooms/:class/students/' do
   erb :addStudents
+end
+
+post '/classrooms/:class/students/' do
+  #erb :addStudents
 end
 
 get '/game/new' do
