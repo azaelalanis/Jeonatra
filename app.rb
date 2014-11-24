@@ -3,6 +3,7 @@
 
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'mail'
 require './config/environments' #database configuration
 
 class Jeonatra < Sinatra::Base; end;
