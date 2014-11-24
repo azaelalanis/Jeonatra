@@ -21,7 +21,7 @@ class Jeonatra
 
   get '/logout' do
     session[:logged_in] = nil
-    session[:user_id] = user
+    session[:user_id] = nil
     redirect to('/')
   end
 
