@@ -29,7 +29,18 @@ class Jeonatra
   end
 
   get '/topics' do
+    @topics = Topic.all
     erb :topicList
+  end
+
+  post '/topics' do
+    #@topics = Topic.all
+    erb :topicList
+  end
+
+  get '/topics/:topic/edit' do
+    @topic = Topic.find_by_id(params[:topic])
+    erb :topicEdit
   end
 
   get '/topics/:topic/categories' do
