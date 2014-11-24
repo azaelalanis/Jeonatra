@@ -1,0 +1,306 @@
+
+<table id="game" cellspacing="5" cellpadding="0" >
+	<thead>
+		<tr>
+
+			<th><%= @category1.name %></th>
+
+			<th><%= @category2.name %></th>
+
+			<th><%= @category3.name %></th>
+
+			<th><%= @category4.name %></th>
+
+			<th><%= @category5.name %></th>
+
+      <th><%= @category6.name %></th>
+
+		</tr>
+	</thead>
+	<tbody>
+
+			<tr>
+						<td id="tq00" class="cell clean" onclick="show('#q00', 200)">
+							<h3>200</h3>
+              <div class="hide">
+                <div id="q00">  <%= h @category1.clues[0].description %></div>
+                <div id="aq00" ><%= h @category1.clues[0].right %></div>
+							</div>
+						</td>
+
+						<td id="tq01" class="cell clean" onclick="show('#q01', 200)">
+							<h3>200</h3>
+              <div class="hide">
+                <div id="q01">  <%= h @category2.clues[0].description %></div>
+                <div id="aq01" ><%= h @category2.clues[0].right %></div>
+              </div>
+						</td>
+
+						<td id="tq02" class="cell clean" onclick="show('#q02', 200)">
+							<h3>200</h3>
+              <div class="hide">
+                <div id="q02">  <%= h @category3.clues[0].description %></div>
+                <div id="aq02" ><%= h @category3.clues[0].right %></div>
+              </div>
+						</td>
+
+						<td id="tq03" class="cell clean" onclick="show('#q03', 200)">
+							<h3>200</h3>
+              <div class="hide">
+                <div id="q03">  <%= h @category4.clues[0].description %></div>
+                <div id="aq03" ><%= h @category4.clues[0].right %></div>
+              </div>
+						</td>
+
+            <td id="tq04" class="cell clean" onclick="show('#q04', 200)">
+              <h3>200</h3>
+              <div class="hide">
+                <div id="q04">  <%= @category5.clues[0].description %></div>
+                <div id="aq04" ><%= @category5.clues[0].right %></div>
+              </div>
+            </td>
+
+            <td id="tq05" class="cell clean" onclick="show('#q04', 200)">
+              <h3>200</h3>
+              <div class="hide">
+                <div id="q05">  <%= h @category6.clues[0].description %></div>
+                <div id="aq05" ><%= h @category6.clues[0].right %></div>
+              </div>
+            </td>
+			</tr>
+
+      <tr>
+            <td id="tq10" class="cell clean" onclick="show('#q10', 400)">
+              <h3>400</h3>
+              <div class="hide">
+                <div id="q10">  <%= h @category1.clues[1].description %></div>
+                <div id="aq10" ><%= h @category1.clues[1].right %></div>
+              </div>
+            </td>
+
+            <td id="tq11" class="cell clean" onclick="show('#q11', 400)">
+              <h3>400</h3>
+              <div class="hide">
+                <div id="q11">  <%= h @category2.clues[1].description %></div>
+                <div id="aq11" ><%= h @category2.clues[1].right %></div>
+              </div>
+            </td>
+
+            <td id="tq12" class="cell clean" onclick="show('#q12', 400)">
+              <h3>400</h3>
+              <div class="hide">
+                <div id="q12">  <%= h @category3.clues[1].description %></div>
+                <div id="aq12" ><%= h @category3.clues[1].right %></div>
+              </div>
+            </td>
+
+            <td id="tq13" class="cell clean" onclick="show('#q13', 400)">
+              <h3>400</h3>
+              <div class="hide">
+                <div id="q13">  <%= h @category4.clues[1].description %></div>
+                <div id="aq13" ><%= h @category4.clues[1].right %></div>
+              </div>
+            </td>
+
+            <td id="tq14" class="cell clean" onclick="show('#q14', 400)">
+              <h3>400</h3>
+              <div class="hide">
+                <div id="q14">  <%= @category5.clues[1].description %></div>
+                <div id="aq14" ><%= @category5.clues[1].right %></div>
+              </div>
+            </td>
+
+            <td id="tq15" class="cell clean" onclick="show('#q15', 400)">
+              <h3>400</h3>
+              <div class="hide">
+                <div id="q15">  <%= h @category6.clues[1].description %></div>
+                <div id="aq15" ><%= h @category6.clues[1].right %></div>
+              </div>
+            </td>
+      </tr>
+
+      <tr>
+            <td id="tq20" class="cell clean" onclick="show('#q20', 600)">
+              <h3>600</h3>
+              <div class="hide">
+                <div id="q20">  <%= h @category1.clues[2].description %></div>
+                <div id="aq20" ><%= h @category1.clues[2].right %></div>
+              </div>
+            </td>
+
+            <td id="tq21" class="cell clean" onclick="show('#q21', 600)">
+              <h3>600</h3>
+              <div class="hide">
+                <div id="q21">  <%= h @category2.clues[2].description %></div>
+                <div id="aq21" ><%= h @category2.clues[2].right %></div>
+              </div>
+            </td>
+
+            <td id="tq22" class="cell clean" onclick="show('#q22', 600)">
+              <h3>600</h3>
+              <div class="hide">
+                <div id="q22">  <%= h @category3.clues[2].description %></div>
+                <div id="aq22" ><%= h @category3.clues[2].right %></div>
+              </div>
+            </td>
+
+            <td id="tq23" class="cell clean" onclick="show('#q23', 600)">
+              <h3>600</h3>
+              <div class="hide">
+                <div id="q23">  <%= h @category4.clues[2].description %></div>
+                <div id="aq23" ><%= h @category4.clues[2].right %></div>
+              </div>
+            </td>
+
+            <td id="tq24" class="cell clean" onclick="show('#q24', 600)">
+              <h3>600</h3>
+              <div class="hide">
+                <div id="q24">  <%= @category5.clues[2].description %></div>
+                <div id="aq24" ><%= @category5.clues[2].right %></div>
+              </div>
+            </td>
+
+            <td id="tq25" class="cell clean" onclick="show('#q25', 600)">
+              <h3>600</h3>
+              <div class="hide">
+                <div id="q25">  <%= h @category6.clues[2].description %></div>
+                <div id="aq25" ><%= h @category6.clues[2].right %></div>
+              </div>
+            </td>
+      </tr>
+
+      <tr>
+            <td id="tq30" class="cell clean" onclick="show('#q30', 800)">
+              <h3>800</h3>
+              <div class="hide">
+                <div id="q30">  <%= h @category1.clues[3].description %></div>
+                <div id="aq30" ><%= h @category1.clues[3].right %></div>
+              </div>
+            </td>
+
+            <td id="tq31" class="cell clean" onclick="show('#q31', 800)">
+              <h3>800</h3>
+              <div class="hide">
+                <div id="q31">  <%= h @category2.clues[3].description %></div>
+                <div id="aq31" ><%= h @category2.clues[3].right %></div>
+              </div>
+            </td>
+
+            <td id="tq32" class="cell clean" onclick="show('#q32', 800)">
+              <h3>800</h3>
+              <div class="hide">
+                <div id="q32">  <%= h @category3.clues[3].description %></div>
+                <div id="aq32" ><%= h @category3.clues[3].right %></div>
+              </div>
+            </td>
+
+            <td id="tq33" class="cell clean" onclick="show('#q33', 800)">
+              <h3>800</h3>
+              <div class="hide">
+                <div id="q33">  <%= h @category4.clues[3].description %></div>
+                <div id="aq33" ><%= h @category4.clues[3].right %></div>
+              </div>
+            </td>
+
+            <td id="tq34" class="cell clean" onclick="show('#q34', 800)">
+              <h3>800</h3>
+              <div class="hide">
+                <div id="q34">  <%= @category5.clues[3].description %></div>
+                <div id="aq34" ><%= @category5.clues[3].right %></div>
+              </div>
+            </td>
+
+            <td id="tq35" class="cell clean" onclick="show('#q35', 800)">
+              <h3>800</h3>
+              <div class="hide">
+                <div id="q35">  <%= h @category6.clues[3].description %></div>
+                <div id="aq35" ><%= h @category6.clues[3].right %></div>
+              </div>
+            </td>
+      </tr>
+
+      <tr>
+            <td id="tq40" class="cell clean" onclick="show('#q40', 1000)">
+              <h3>1000</h3>
+              <div class="hide">
+                <div id="q40">  <%= h @category1.clues[4].description %></div>
+                <div id="aq40" ><%= h @category1.clues[4].right %></div>
+              </div>
+            </td>
+
+            <td id="tq41" class="cell clean" onclick="show('#q41', 1000)">
+              <h3>1000</h3>
+              <div class="hide">
+                <div id="q41">  <%= h @category2.clues[4].description %></div>
+                <div id="aq41" ><%= h @category2.clues[4].right %></div>
+              </div>
+            </td>
+
+            <td id="tq42" class="cell clean" onclick="show('#q42', 1000)">
+              <h3>1000</h3>
+              <div class="hide">
+                <div id="q42">  <%= h @category3.clues[4].description %></div>
+                <div id="aq42" ><%= h @category3.clues[4].right %></div>
+              </div>
+            </td>
+
+            <td id="tq43" class="cell clean" onclick="show('#q43', 1000)">
+              <h3>1000</h3>
+              <div class="hide">
+                <div id="q43">  <%= h @category4.clues[4].description %></div>
+                <div id="aq43" ><%= h @category4.clues[4].right %></div>
+              </div>
+            </td>
+
+            <td id="tq44" class="cell clean" onclick="show('#q44', 1000)">
+              <h3>1000</h3>
+              <div class="hide">
+                <div id="q44">  <%= @category5.clues[4].description %></div>
+                <div id="aq44" ><%= @category5.clues[4].right %></div>
+              </div>
+            </td>
+
+            <td id="tq45" class="cell clean" onclick="show('#q45', 1000)">
+              <h3>1000</h3>
+              <div class="hide">
+                <div id="q45">  <%= h @category6.clues[4].description %></div>
+                <div id="aq45" ><%= h @category6.clues[4].right %></div>
+              </div>
+            </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="stats">
+ <table>
+        <tbody>
+            <tr>
+                <th>
+                    <input id="player1-btn" class="select-player" onclick="setplayer(1)" type="button" value="Player 1">
+                </th>
+
+                <th>
+                    <input id="player2-btn" class="select-player" onclick="setplayer(2)" type="button" value="Player 2">
+                </th>
+
+                <th>
+                    <input id="player3-btn" class="select-player" onclick="setplayer(3)" type="button" value="Player 3">
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3 id="player1" >0</h3>
+                </td>
+
+                <td>
+                    <h3 id="player2" >0</h3>
+                </td>
+
+                <td>
+                    <h3 id="player3">0</h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>

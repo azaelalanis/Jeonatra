@@ -14,7 +14,7 @@ Dir['models/*.rb'].each { |model| require_relative model } #load all models
 
 class Jeonatra
   after { ActiveRecord::Base.connection.close }
-  
+
   get '/' do
     if logged_in?
       redirect to('/password')  if current_user.first_login?
@@ -49,7 +49,39 @@ class Jeonatra
   end
 
   get '/game/new' do
-    erb :newGameOptions
+    erb :crearjuego
+  end
+
+  post '/game/' do
+
+  
+
+  @game = Game.new
+
+
+  if @game.save
+    redirect to('/game/#{@game.id}')
+  else
+    redirect to('/game/new')
+  end
+  end
+
+  get '/game/:gameid' do
+    game = Game.find_by_id(params[:game_id])
+    game.topics.each do |topic|
+      @categories << topic.categories
+    end
+
+    @selected_categories = @categories.sample(6)
+
+    @category1 = @selected_categories[0]
+    @category2 = @selected_categories[1]
+    @category3 = @selected_categories[2]
+    @category4 = @selected_categories[3]
+    @category5 = @selected_categories[4]
+    @category6 = @selected_categories[5]
+
+    erb :jeopardy, :layout=> :jeopardy_layout
   end
 
 end

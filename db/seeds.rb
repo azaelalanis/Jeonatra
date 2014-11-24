@@ -78,10 +78,10 @@ clues = [
               {:category_id=>3, :value=>600,  :description=> "Como se le conoce a la implementacion Java de Python",
                :right=>"Jython", :wrong1=>"PyJava", :wrong2=>"Javathon"},
 
-              {:category_id=>3, :value=>1000, :description=> "Define una funcion en Python",
+              {:category_id=>3, :value=>800, :description=> "Define una funcion en Python",
                :right=>"def fun():", :wrong1=>"def fun()", :wrong2=>"function fun ()"},
 
-              {:category_id=>3, :value=>800,  :description=> "El fue quien creo Python",
+              {:category_id=>3, :value=>1000,  :description=> "El fue quien creo Python",
                :right=>"Guido van Rossum", :wrong1=>"Bill Joy", :wrong2=>"Larry Wall"},
 
                # JAVASCRIPT
@@ -103,7 +103,7 @@ clues = [
 
                # CPP
 
-              {:category_id=>5, :value=>200,  :description=> "Es un string",
+              {:category_id=>5, :value=>200,  :description=> "Asi se representa un string",
                 :right=>"\"mesa\" ", :wrong1=>"'G'", :wrong2=>"28889"},
 
               {:category_id=>5, :value=>400,  :description=> "Funcion que se llama automaticamente al inicio de un programa en C++",

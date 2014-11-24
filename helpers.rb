@@ -17,6 +17,10 @@ module Sinatra
         return "<div class='alert alert-info' role='alert'> #{mensaje} </div>"
       end
     end
+
+    def h(text)
+      Rack::Utils.escape_html(text)
+    end
   end
 
   helpers UserHelper
