@@ -24,6 +24,11 @@ class Jeonatra
     erb :register
   end
 
+  post '/register' do
+    redirect to('/')
+  end
+
+
   get '/topics' do
     erb :topicList
   end
