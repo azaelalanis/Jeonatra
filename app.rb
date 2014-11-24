@@ -13,6 +13,8 @@ Dir['controllers/*.rb'].each { |controller| require_relative controller } #load 
 Dir['models/*.rb'].each { |model| require_relative model } #load all models
 
 class Jeonatra
+  after { ActiveRecord::Base.connection.close }
+  
   get '/' do
     if logged_in?
       redirect to('/password')  if current_user.first_login?
