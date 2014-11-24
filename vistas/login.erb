@@ -1,8 +1,8 @@
-<form action="" class="form-signin" role="form" method="post">
+<form action="/login" class="form-signin" role="form" method="post">
   <h2 class="form-signin-heading" align="center">Inicia sesión</h2>
-  <input name="login" type="text" class="form-control" placeholder="Usuario" required autofocus>
+  <input name="user[email]" type="text" class="form-control" placeholder="Usuario" required autofocus>
   <br>
-  <input name="password" type="password" class="form-control" placeholder="Contraseña" required>
+  <input name="user[password]" type="password" class="form-control" placeholder="Contraseña" required>
   <br>
   <button class="btn btn-primary btn-block" type="submit">Entrar</button>
 </form>
