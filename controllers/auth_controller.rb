@@ -7,6 +7,7 @@ class Jeonatra
 
     if login_user(user,pass)
       session[:logged_in] = true
+      session[:user_id] = user
       redirect back
     else
       return "No se pudo hacer login: #{session[:login_msg]}"
