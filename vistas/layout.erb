@@ -8,6 +8,14 @@
   <meta name="author" content="">
   <link rel="icon" href="favicon.ico">
 
+  <link rel="stylesheet" href="/chosen/docsupport/style.css">
+  <link rel="stylesheet" href="/chosen/docsupport/prism.css">
+  <link rel="stylesheet" href="/chosen/chosen.css">
+  <style type="text/css" media="all">
+  /* fix rtl for demo */
+    .chosen-rtl .chosen-drop { left: -9000px; }
+  </style>
+
   <title>Jeopardy</title>
 
   <!-- Bootstrap core CSS -->
@@ -36,6 +44,17 @@
     <%= yield %>
   </div>
 
-  <script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+  <!--<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+  <script src="/chosen/chosen.jquery.js" type="text/javascript"></script>
+  <script src="/chosen/docsupport/prism.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+  var config = {
+    '.chosen-select'           : {width:"100%"}
+  }
+  for (var selector in config) {
+    $(selector).chosen(config[selector]);
+  }
+  </script>
 </body>
 </html>
