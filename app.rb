@@ -43,4 +43,5 @@ class Jeonatra
   get '/game/new' do
     erb :newGameOptions
   end
+
 end
