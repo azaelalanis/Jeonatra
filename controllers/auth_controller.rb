@@ -1,5 +1,9 @@
 class Jeonatra
 
+  get '/login' do
+    erb :login
+  end
+
   post '/login' do
 
     user = params[:user][:email]
@@ -8,7 +12,7 @@ class Jeonatra
     if login_user(user,pass)
       session[:logged_in] = true
       session[:user_id] = user
-      redirect back
+      redirect to("/")
     else
       return "No se pudo hacer login: #{session[:login_msg]}"
     end
@@ -17,7 +21,8 @@ class Jeonatra
 
   get '/logout' do
     session[:logged_in] = nil
-    redirect back
+    session[:user_id] = user
+    redirect to('/')
   end
 
 

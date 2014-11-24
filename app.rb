@@ -15,10 +15,15 @@ Dir['models/*.rb'].each { |model| require_relative model } #load all models
 class Jeonatra
   get '/' do
     if logged_in?
-      erb :dashboard
+      redirect to('/password')  if current_user.first_login?
+      redirect to('/dashboard')
     else
-      erb :login
+      redirect to('/login')
     end
+  end
+
+  get '/dashboard' do
+    erb :dashboard
   end
 
   get '/topics' do

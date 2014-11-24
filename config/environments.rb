@@ -17,8 +17,8 @@ configure :production, :development do
       :address => 'smtp.sendgrid.net',
       :port => '587',
       :domain => 'heroku.com',
-      :user_name => ENV['SENDGRID_USERNAME'] || "app31908779@heroku.com",
-      :password => ENV['SENDGRID_PASSWORD'] || "cemn8vc6",
+      :user_name => ENV['SENDGRID_USERNAME'],
+      :password => ENV['SENDGRID_PASSWORD'],
       :authentication => :plain,
       :enable_starttls_auto => true
     }
