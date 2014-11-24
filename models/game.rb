@@ -1,3 +1,5 @@
 class Game < ActiveRecord::Base
-  has_many :topics true :profile
+  belongs_to :classroom
+  has_many :topic, :through => :profile
+  has_many :students, :through => :players
 end

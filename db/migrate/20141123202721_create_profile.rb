@@ -1,8 +1,8 @@
 class CreateProfile < ActiveRecord::Migration
   def up
     create_table :profiles do |c|
-      c.integer :tema_id
-      c.integer :juego_id
+      c.integer :topic_id
+      c.integer :game_id
 
       c.timestamps
     end
