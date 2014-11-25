@@ -201,6 +201,7 @@ class Jeonatra
     end
 
     erb :newGameOptions
+  end
 
   post '/students/new' do
     @student = Student.new(params[:student])
