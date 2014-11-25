@@ -4,14 +4,14 @@ class Classroom < ActiveRecord::Base
   has_many :games
 
   def show_url
-    return "/classroom/#{self.id}"
+    return "/classrooms/#{self.id}"
   end
 
   def edit_url
-    return "/classroom/#{self.id}/edit"
+    return "/classrooms/#{self.id}/edit"
   end
 
   def delete_url
-    return "/classroom/#{self.id}/delete"
+    return "/classrooms/#{self.id}/delete"
   end
 end

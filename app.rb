@@ -130,6 +130,13 @@ class Jeonatra
     end
   end
 
+  get '/classrooms/:classroom/delete' do
+    @classroom = Classroom.find_by_id(params[:classroom])
+    @classroom.destroy
+    session[:flash] = "Se ha elimiando la clase"
+    redirect to('/classrooms')
+  end
+
   get '/students/new' do
     erb :addStudents
   end
