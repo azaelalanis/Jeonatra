@@ -164,17 +164,20 @@ class Jeonatra
   end
 
   post '/students/new' do
-    @student = Student.new(params[:students])
+    @student = Student.new(params[:student])
     if @student.save
       session[:flash] = "Se ha agregado el alumno."
-      redirect to('/dashboard')
+      redirect to("/classrooms/#{@student.classroom.id}/students")
     else
       "No se pudo guardar"
     end
   end
 
   post '/students/:student/update' do
-
+    @student = Student.find_by_id(params[:student])
+    name = params[:name]
+    @student.update(:name => name)
+    "Actualizado"
   end
 
   get '/students/:student/delete' do
