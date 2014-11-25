@@ -1,3 +1,4 @@
+<%= flash_messages %>
 <h1>Lista de temas</h1>
 <div class="row">
   <div class="col-md-8">
@@ -21,11 +22,14 @@
       </tbody>
     </table>
     <br>
-    <div class="form-group">
-      <label class="control-label" for="focusedInput">Agregar Tema</label>
-      <input class="form-control" id="focusedInput" type="text" value="Agregar nuevo tema...">
-    </div>
+    <form action="/topics/new" method="post">
+      <div class="form-group">
+        <label class="control-label" for="focusedInput">Agregar Tema</label>
+        <input name="topic[professor_id]" type="hidden" value="<%= current_user.id%>">
+        <input name="topic[name]" class="form-control" id="focusedInput" type="text" value="Agregar nuevo tema...">
+      </div>
     <br>
-    <a href="/topics" class="btn btn-primary">Agregar</a>
+    <input type="submit" href="/topics" class="btn btn-primary" value ="Agregar">
+  </form>
   </div>
 </div>

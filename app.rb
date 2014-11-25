@@ -13,6 +13,7 @@ Dir['controllers/*.rb'].each { |controller| require_relative controller } #load 
 Dir['models/*.rb'].each { |model| require_relative model } #load all models
 
 class Jeonatra
+  set :method_override, true
   after { ActiveRecord::Base.connection.close }
 
   get '/' do
@@ -33,8 +34,21 @@ class Jeonatra
     erb :topicList
   end
 
-  post '/topics' do
-    #@topics = Topic.all
+  post '/topics/new' do
+    @topic = Topic.new(params[:topic])
+    if @topic.save
+      session[:flash] = "Se ha agregado el topico."
+      redirect to('/topics')
+    else
+      "No se pudo guardar"
+    end
+  end
+
+  get '/topics/:topic/delete' do
+    @topic = Topic.find_by_id(params[:topic])
+    @topic.destroy
+    session[:flash] = "Se ha elimiando el topico"
+    redirect to('/topics')
     erb :topicList
   end
 
@@ -64,8 +78,6 @@ class Jeonatra
   end
 
   post '/game/' do
-
-  
 
   @game = Game.new
 
