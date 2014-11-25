@@ -249,6 +249,10 @@ class Jeonatra
       end
     end
 
+    if @categories.count < 6
+      return "Los temas no suman suficientes categorias"
+    end
+
     @selected_categories = @categories.sample(6)
 
     @category1 = @selected_categories[0]
