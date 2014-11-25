@@ -192,10 +192,7 @@ class Jeonatra
   end
 
   post '/game/' do
-
-  @game = Game.new
-
-
+    @game = Game.new
     if @game.save
       redirect to('/game/#{@game.id}')
     else
