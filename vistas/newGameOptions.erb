@@ -1,16 +1,14 @@
-<form class="form-horizontal">
+
+<form action="/game/new" method="post" class="form-horizontal">
   <fieldset>
     <legend>Nuevo juego.</legend>
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">Clase</label>
       <div class="col-lg-10">
-        <select data-placeholder="Elige una opcion..." class="chosen-select" tabindex="2" id="select">
-          <option value=""></option>
-          <option value="Opcion 1">Opcion 1</option>
-          <option value="Opcion 2">Opcion 2</option>
-          <option value="Opcion 3">Opcion 3</option>
-          <option value="Opcion 4">Opcion 4</option>
-          <option value="Opcion 5">Opcion 5</option>
+        <select name="game[classroom_id]" data-placeholder="Elige una opcion..." class="chosen-select" tabindex="2" id="select">
+          <% @clases.each do |x| %>
+          <option value="<%= x.id %>"><%= x.name %></option>
+          <% end %>
         </select>
       </div>
     </div>
@@ -18,13 +16,10 @@
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">Tema</label>
       <div class="col-lg-10">
-        <select data-placeholder="Elige una opcion..." class="chosen-select" tabindex="2" id="select">
-          <option value=""></option>
-          <option value="Opcion 1">Opcion 1</option>
-          <option value="Opcion 2">Opcion 2</option>
-          <option value="Opcion 3">Opcion 3</option>
-          <option value="Opcion 4">Opcion 4</option>
-          <option value="Opcion 5">Opcion 5</option>
+        <select  name="game[topics][]" data-placeholder="Elige una opcion..." class="chosen-select-multiple" multiple="" tabindex="2" id="select">
+          <% @topics.each do |x| %>
+          <option value="<%= x.id %>"><%= x.name %></option>
+          <% end %>
         </select>
       </div>
     </div>
@@ -32,13 +27,10 @@
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">Jugador 1</label>
       <div class="col-lg-10">
-        <select data-placeholder="Elige una opcion..." class="chosen-select" tabindex="2" id="select">
-          <option value=""></option>
-          <option value="Opcion 1">Opcion 1</option>
-          <option value="Opcion 2">Opcion 2</option>
-          <option value="Opcion 3">Opcion 3</option>
-          <option value="Opcion 4">Opcion 4</option>
-          <option value="Opcion 5">Opcion 5</option>
+        <select  name="game[student1]" data-placeholder="Elige una opcion..." class="chosen-select" tabindex="2" id="select">
+          <% @students.each do |x| %>
+          <option value="<%= x.id %>"><%= x.name %></option>
+          <% end %>
         </select>
       </div>
     </div>
@@ -46,13 +38,10 @@
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">Jugador 2</label>
       <div class="col-lg-10">
-        <select data-placeholder="Elige una opcion..." class="chosen-select" tabindex="2" id="select">
-          <option value=""></option>
-          <option value="Opcion 1">Opcion 1</option>
-          <option value="Opcion 2">Opcion 2</option>
-          <option value="Opcion 3">Opcion 3</option>
-          <option value="Opcion 4">Opcion 4</option>
-          <option value="Opcion 5">Opcion 5</option>
+        <select name="game[student2]" data-placeholder="Elige una opcion..." class="chosen-select" tabindex="2" id="select">
+          <% @students.each do |x| %>
+          <option value="<%= x.id %>"><%= x.name %></option>
+          <% end %>
         </select>
       </div>
     </div>
@@ -60,18 +49,15 @@
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">Jugador 3</label>
       <div class="col-lg-10">
-        <select data-placeholder="Elige una opcion..." class="chosen-select" tabindex="2" id="select">
-          <option value=""></option>
-          <option value="Opcion 1">Opcion 1</option>
-          <option value="Opcion 2">Opcion 2</option>
-          <option value="Opcion 3">Opcion 3</option>
-          <option value="Opcion 4">Opcion 4</option>
-          <option value="Opcion 5">Opcion 5</option>
+        <select name="game[student3]" data-placeholder="Elige una opcion..." class="chosen-select" tabindex="2" id="select">
+          <% @students.each do |x| %>
+          <option value="<%= x.id %>"><%= x.name %></option>
+          <% end %>
         </select>
       </div>
     </div>
 
-    <a href="#" class="btn btn-default btn-lg btn-block">Jeopardy!</a>
+    <input type="submit" class="btn btn-default btn-lg btn-block" value="Jeopardy!">
 
   </fieldset>
 </form>

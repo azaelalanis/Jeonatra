@@ -1,4 +1,4 @@
 class Profile < ActiveRecord::Base
   belongs_to :topic
-  belongs_to :student
+  belongs_to :game
 end

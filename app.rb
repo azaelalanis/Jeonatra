@@ -141,15 +141,48 @@ class Jeonatra
     erb :addStudents
   end
 
+  post '/game/new' do
+    @classroom = Classroom.find_by_id(params[:game][:classroom_id])
+    @player1 = Student.find_by_id(params[:game][:student1])
+    @player2 = Student.find_by_id(params[:game][:student2])
+    @player3 = Student.find_by_id(params[:game][:student3])
+
+    @topics = []
+    params[:game][:topics].each do |t|
+      @topics << Topic.find_by_id(t)
+    end
+
+    g = Game.new(:classroom_id => params[:game][:classroom_id])
+    g.save
+
+    Player.create(:student=>@player1, :game=>g)
+    Player.create(:student=>@player2, :game=>g)
+    Player.create(:student=>@player3, :game=>g)
+
+    @topics.each do |t|
+      Profile.create(:topic=>t, :game=>g)
+    end
+
+    redirect to("/game/#{g.id}")
+  end
+
   get '/game/new' do
-    erb :crearjuego
+    @clases = current_user.classrooms
+    @topics = current_user.topics
+
+    @students = []
+
+    @clases.each do |clase|
+      clase.students.each do |student|
+        @students << student
+      end
+    end
+
+    erb :newGameOptions
   end
 
   post '/game/' do
-
-  @game = Game.new
-
-
+    @game = Game.new
     if @game.save
       redirect to('/game/#{@game.id}')
     else
@@ -158,11 +191,16 @@ class Jeonatra
   end
 
   get '/game/:gameid' do
-    #game = Game.find_by_id(params[:game_id])
-    #game.topics.each do |topic|
+    game = Game.find_by_id(params[:gameid])
+
+    @players = game.players
+
     @categories = []
-    Category.all.each do |category|
-      @categories << category
+
+    game.topics.each do |topic|
+      topic.categories.each do |category|
+        @categories << category
+      end
     end
 
     @selected_categories = @categories.sample(6)

@@ -276,15 +276,15 @@
         <tbody>
             <tr>
                 <th>
-                    <input id="player1-btn" class="select-player" onclick="setplayer(1)" type="button" value="Player 1">
+                    <input id="player1-btn" class="select-player" onclick="setplayer(1)" type="button" value="<%= @players.first.student.name %>">
                 </th>
 
                 <th>
-                    <input id="player2-btn" class="select-player" onclick="setplayer(2)" type="button" value="Player 2">
+                    <input id="player2-btn" class="select-player" onclick="setplayer(2)" type="button" value="<%= @players.second.student.name %>">
                 </th>
 
                 <th>
-                    <input id="player3-btn" class="select-player" onclick="setplayer(3)" type="button" value="Player 3">
+                    <input id="player3-btn" class="select-player" onclick="setplayer(3)" type="button" value="<%= @players.third.student.name %>">
                 </th>
             </tr>
 
