@@ -149,6 +149,23 @@ class Jeonatra
     erb :studentsByClassroom
   end
 
+
+  get '/classrooms/:classroom/score' do
+    @games = Classroom.find(params[:classroom]).games
+
+    @players = []
+
+    @games.each do |game|
+      game.players.each do |player|
+        @players << player
+      end
+    end
+
+    erb :leaderboard
+
+  end
+
+
   get '/classrooms/:classroom/delete' do
     @classroom = Classroom.find_by_id(params[:classroom])
     @classroom.destroy

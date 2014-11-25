@@ -1,0 +1,19 @@
+<%
+#SUPER MEGA HACK
+#BASICAMENTE CREAMOS UN HASH CON EL NOMBRE DEL ALUMNO, Y LE ASIGNAMOS PUNTACION
+#DESPUES ORDERNAMOS EL HASH DE MENOR A MAYOR
+players = {}
+@players.each do |p|
+  players["#{p.student.name}"] = (players["#{p.student.name}"] || 0) + p.score
+end
+players = Hash[players.sort_by { |_, v| -v }]
+%>
+
+
+<h1> Scores </h1>
+<br>
+<ul>
+<% players.each do |key,value| %>
+<li><b><%=key%></b> : <%=value%></li>
+<%end%>
+</ul>
