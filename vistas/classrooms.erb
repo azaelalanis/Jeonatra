@@ -1,4 +1,29 @@
 <%= flash_messages %>
+
+<script>
+function changeClass(id) {
+  var name = prompt("Cual es el nuevo nombre de la clase", "Nuevo nombre...");
+  var html2 = "<td id='" + id + "'><a href='/classrooms/" + id + "/students'>" + name + "</a></td>";
+  if (name != null) {
+    document.getElementById(id).innerHTML = html2;
+  }
+  updateClass(id,name);
+}
+
+function updateClass(id, name)
+{
+  $.ajax({
+    type: "POST",
+    url: "/classrooms/"+id+"/update",
+    data: "name=" + name,
+    success: function(msg){
+      alert( "Data Saved: " + msg );
+    }
+  });
+}
+
+</script>
+
 <h1>Lista de clases del profesor</h1>
 <div class="row">
   <div class="col-md-12">
@@ -12,8 +37,8 @@
       <tbody>
         <% @classrooms.each do |classroom| %>
         <tr>
-          <td><%= classroom.name %></td>
-          <td><a href="#" class="btn btn-primary btn-xs">Editar</a> <a href="<%= classroom.delete_url %>" class="btn btn-primary btn-xs">Borrar</a></td>
+          <td id="<%= classroom.id%>"><a href="/classrooms/<%= classroom.id%>/students"><%= classroom.name %></a></td>
+          <td><a onclick="changeClass(<%= classroom.id%>)" class="btn btn-primary btn-xs">Editar</a> <a href="<%= classroom.delete_url %>" class="btn btn-primary btn-xs">Borrar</a></td>
         </tr>
         <% end %>
       </tbody>

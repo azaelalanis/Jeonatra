@@ -144,6 +144,11 @@ class Jeonatra
     end
   end
 
+  get '/classrooms/:classroom/students' do
+    @students = Student.all
+    erb :studentsByClassroom
+  end
+
   get '/classrooms/:classroom/delete' do
     @classroom = Classroom.find_by_id(params[:classroom])
     @classroom.destroy
@@ -151,8 +156,32 @@ class Jeonatra
     redirect to('/classrooms')
   end
 
-  get '/students/new' do
-    erb :addStudents
+  post '/classrooms/:classroom/update' do
+    @classroom = Classroom.find_by_id(params[:classroom])
+    name = params[:name]
+    @classroom.update(:name => name)
+    "Actualizado"
+  end
+
+  post '/students/new' do
+    @student = Student.new(params[:students])
+    if @student.save
+      session[:flash] = "Se ha agregado el alumno."
+      redirect to('/dashboard')
+    else
+      "No se pudo guardar"
+    end
+  end
+
+  post '/students/:student/update' do
+
+  end
+
+  get '/students/:student/delete' do
+    @student = Student.find_by_id(params[:student])
+    @student.destroy
+    session[:flash] = "Se ha elimiando el alumno"
+    redirect to('/classrooms/:classroom/students')
   end
 
   get '/game/new' do
