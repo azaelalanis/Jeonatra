@@ -1,38 +1,59 @@
 <h1>Pistas por categoria</h1>
-<form class="form-horizontal">
+<form action="/categories/<%=@category.id%>/clues/update" method="post">
   <fieldset>
     <legend>Asignar puntuaciones</legend>
     <div class="form-group">
-      <label for="clue200" class="col-lg-2 control-label">Pista de 200</label>
+      <label for="clue200" class="col-lg-2 control-label"><%= @clue1.value%></label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="clue200" placeholder="200">
+        <input name="clues[][value]"  type="hidden" value="<%= @clue1.value %>">
+        <input type="text" name="clues[][description]" class="form-control" id="clue200" placeholder="200" value="<%= @clue1.description%>">
+        <input type="text" name="clues[][right]" class="form-control" id="clue200" placeholder="200" value="<%= @clue1.right%>">
       </div>
     </div>
+    <br>
+    <br>
+    <hr style="border-color:#CCC">
     <div class="form-group">
-      <label for="clue400" class="col-lg-2 control-label">Pista de 400</label>
+      <label for="clue400" class="col-lg-2 control-label"><%= @clue2.value%></label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="clue400" placeholder="400">
+        <input name="clues[][value]"  type="hidden"  value="<%= @clue2.value %>">
+        <input type="text" name="clues[][description]" class="form-control" id="clue400" placeholder="400" value="<%= @clue2.description%>">
+        <input type="text" name="clues[][right]" class="form-control" id="clue400" placeholder="400" value="<%= @clue2.right%>">
       </div>
     </div>
+    <br>
+    <br>
+    <hr style="border-color:#CCC">
     <div class="form-group">
-      <label for="clue600" class="col-lg-2 control-label">Pista 600</label>
+      <label for="clue600" class="col-lg-2 control-label"><%= @clue3.value%></label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="clue600" placeholder="600">
+        <input name="clues[][value]" type="hidden" value="<%= @clue3.value %>">
+        <input type="text" name="clues[][description]" class="form-control" id="clue600" placeholder="600" value="<%= @clue3.description%>">
+        <input type="text" name="clues[][right]" class="form-control" id="clue600" placeholder="600" value="<%= @clue3.right%>">
       </div>
     </div>
+    <br>
+    <br>
+    <hr style="border-color:#CCC">
     <div class="form-group">
-      <label for="clue800" class="col-lg-2 control-label">Pista 800</label>
+      <label for="clue800" class="col-lg-2 control-label"><%= @clue4.value%></label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="clue800" placeholder="800">
+        <input name="clues[][value]" type="hidden" value="<%= @clue4.value %>">
+        <input type="text" name="clues[][description]" class="form-control" id="clue800" placeholder="800" value="<%= @clue4.description%>">
+        <input type="text" name="clues[][right]" class="form-control" id="clue800" placeholder="800" value="<%= @clue4.right%>">
       </div>
     </div>
+    <br>
+    <br>
+    <hr style="border-color:#CCC">
     <div class="form-group">
-      <label for="clue1000" class="col-lg-2 control-label">Pista 1000</label>
+      <label for="clue1000" class="col-lg-2 control-label"><%= @clue5.value%></label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="clue1000" placeholder="1000">
+        <input name="clues[][value]" type="hidden" value="<%= @clue5.value %>">
+        <input type="text" name="clues[][description]" class="form-control" id="clue1000" placeholder="1000" value="<%= @clue5.description%>">
+        <input type="text" name="clues[][right]" class="form-control" id="clue1000" placeholder="1000" value="<%= @clue5.right%>">
       </div>
     </div>
   </fieldset>
+  <input type="submit" class="btn btn-primary" value="Asignar pistas">
 </form>
-
-<a href="#" class="btn btn-primary">Asignar pistas</a>

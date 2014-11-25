@@ -64,7 +64,51 @@ class Jeonatra
   end
 
   get '/categories/:category/clues' do
+    @category = Category.find_by_id(params[:category])
+    @clue1 = @category.clues.find_by_value(200)
+    @clue2 = @category.clues.find_by_value(400)
+    @clue3 = @category.clues.find_by_value(600)
+    @clue4 = @category.clues.find_by_value(800)
+    @clue5 = @category.clues.find_by_value(1000)
     erb :cluesByCategory
+  end
+
+  post '/categories/:category/clues/update' do
+    "#{params[:clues].inspect}"
+    @category = Category.find_by_id(params[:category])
+
+    @clue1 = @category.clues.find_by_value(200)
+    @clue2 = @category.clues.find_by_value(400)
+    @clue3 = @category.clues.find_by_value(600)
+    @clue4 = @category.clues.find_by_value(800)
+    @clue5 = @category.clues.find_by_value(1000)
+
+    @clue1.update(params[:clues][0])
+    @clue2.update(params[:clues][1])
+    @clue3.update(params[:clues][2])
+    @clue4.update(params[:clues][3])
+    @clue5.update(params[:clues][4])
+
+    redirect to("/categories/#{@category.id}/clues")
+
+  end
+
+  post '/categories/new' do
+    @category = Category.new(params[:category])
+    if @category.save
+      session[:flash] = "Se ha agregado la categoria."
+      redirect to("/topics/#{@category.topic.id}/categories")
+    else
+      "No se pudo guardar"
+    end
+  end
+
+  get '/categories/:category/delete' do
+    @category = Category.find_by_id(params[:category])
+    url_path = "/topics/#{@category.topic.id}/categories"
+    @category.destroy
+    session[:flash] = "Se ha elimiando la categoria"
+    redirect to(url_path)
   end
 
   get '/profiles/:profile/edit' do
