@@ -14,7 +14,7 @@
         <% @topics.each do |topic|%>
         <tr>
           <td><%= topic.id%></td>
-          <td><%= topic.name %></td>
+          <td><a href="/topics/<%= topic.id%>/categories"><%= topic.name %></a></td>
           <td><a href="<%= topic.edit_url%>" class="btn btn-primary btn-xs">Editar</a> <a href="<%= topic.delete_url%>" class="btn btn-primary btn-xs">Borrar</a></td>
         </tr>
         <% end %>

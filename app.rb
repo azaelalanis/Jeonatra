@@ -58,6 +58,8 @@ class Jeonatra
   end
 
   get '/topics/:topic/categories' do
+    @topic = Topic.find_by_id(params[:topic])
+    @categories = @topic.categories
     erb :categoriesByTopic
   end
 

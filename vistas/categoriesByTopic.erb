@@ -10,11 +10,13 @@
         </tr>
       </thead>
       <tbody>
+        <% @categories.each do |category|%>
         <tr>
-          <td>1</td>
-          <td>Tema #1</td>
-          <td><a href="#" class="btn btn-primary btn-xs">Editar</a> <a href="#" class="btn btn-primary btn-xs">Borrar</a></td>
+          <td><%= category.id%></td>
+          <td><a href="/categories/<%= category.id%>/clues"><%= category.name%></a></td>
+          <td><a href="<%= category.edit_url%>" class="btn btn-primary btn-xs">Editar</a> <a href="<%= category.delete_url%>" class="btn btn-primary btn-xs">Borrar</a></td>
         </tr>
+        <% end %>
       </tbody>
     </table>
     <br>
