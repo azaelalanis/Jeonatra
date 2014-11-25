@@ -71,6 +71,21 @@ class Jeonatra
     erb :editProfile
   end
 
+  get '/classrooms' do
+    @classrooms = current_user.classrooms
+    erb :classrooms
+  end
+
+  post '/classrooms/new' do
+    @classroom = Classroom.new(params[:classroom])
+    if @classroom.save
+      session[:flash] = "Se ha agregado la clase."
+      redirect to('/classrooms')
+    else
+      "No se pudo guardar"
+    end
+  end
+
   get '/students/new' do
     erb :addStudents
   end
@@ -84,11 +99,11 @@ class Jeonatra
   @game = Game.new
 
 
-  if @game.save
-    redirect to('/game/#{@game.id}')
-  else
-    redirect to('/game/new')
-  end
+    if @game.save
+      redirect to('/game/#{@game.id}')
+    else
+      redirect to('/game/new')
+    end
   end
 
   get '/game/:gameid' do

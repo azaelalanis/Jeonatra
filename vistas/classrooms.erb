@@ -1,28 +1,32 @@
 <h1>Lista de clases del profesor</h1>
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th width="10%">#</th>
           <th width="70%">Nombre</th>
           <th width="20%">Opciones</th>
         </tr>
       </thead>
       <tbody>
+        <% @classrooms.each do |classroom| %>
         <tr>
-          <td>1</td>
-          <td>Clase #1</td>
-          <td><a href="#" class="btn btn-primary btn-xs">Editar</a> <a href="#" class="btn btn-primary btn-xs">Borrar</a></td>
+          <td><%= classroom.name %></td>
+          <td><a href="#" class="btn btn-primary btn-xs">Editar</a> <a href="<%= classroom.delete_url %>" class="btn btn-primary btn-xs">Borrar</a></td>
         </tr>
+        <% end %>
       </tbody>
     </table>
     <br>
     <div class="form-group">
+      <form action="/classrooms/new" method="post">
       <label class="control-label" for="focusedInput">Agregar Clase</label>
-      <input class="form-control" id="focusedInput" type="text" value="Agregar nueva clase...">
+      <input name="classroom[professor_id]" type="hidden" value="<%= current_user.id %>">
+      <input name="classroom[name]" class="form-control" id="focusedInput" type="text" value="Agregar nueva clase...">
     </div>
     <br>
-    <a href="#" class="btn btn-primary">Agregar</a>
+    <input type="submit" class="btn btn-primary" value ="Agregar">
+  </form>
+
   </div>
 </div>
