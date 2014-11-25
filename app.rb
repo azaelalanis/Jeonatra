@@ -92,9 +92,11 @@ class Jeonatra
   end
 
   get '/game/:gameid' do
-    game = Game.find_by_id(params[:game_id])
-    game.topics.each do |topic|
-      @categories << topic.categories
+    #game = Game.find_by_id(params[:game_id])
+    #game.topics.each do |topic|
+    @categories = []
+    Category.all.each do |category|
+      @categories << category
     end
 
     @selected_categories = @categories.sample(6)
