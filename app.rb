@@ -282,4 +282,23 @@ class Jeonatra
     erb :jeopardy, :layout=> :jeopardy_layout
   end
 
+  #Aqui se guardan los scores de los players
+  post '/game/:gameid/update' do
+    game = Game.find_by_id(params[:gameid])
+    @players = game.players
+    @player1 = @players.first
+    @player2 = @players.second
+    @player3 = @players.third
+
+    @player1.score = params[:player1]
+    @player2.score = params[:player2]
+    @player3.score = params[:player3]
+
+    @player1.save
+    @player2.save
+    @player3.save
+    
+    "#{@players.to_yaml}"
+  end
+
 end

@@ -1,6 +1,22 @@
-$(document).ready(function(){
 
-})
+$(document).ready(function () {
+  setInterval(function() {
+    var player1_score = $("#player1").html();
+    var player2_score = $("#player2").html();
+    var player3_score = $("#player3").html();
+
+    var game_id = location.pathname.split("/")[2];
+
+    $.ajax({
+      type: "POST",
+      url: "/game/"+game_id+"/update",
+      data: "player1=" + player1_score + "&player2=" + player2_score + "&player3=" + player3_score,
+      success: function(msg){
+        alert( "Data Saved: " + msg );
+      }
+    });
+  }, 30000);
+});
 
 var selected_player = 1;
 
