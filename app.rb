@@ -63,6 +63,13 @@ class Jeonatra
     erb :categoriesByTopic
   end
 
+  post '/topics/:topic/update' do
+    @topic = Topic.find_by_id(params[:topic])
+    name = params[:name]
+    @topic.update(:name => name)
+    "Actualizado"
+  end
+
   get '/categories/:category/clues' do
     @category = Category.find_by_id(params[:category])
     @clue1 = @category.clues.find_by_value(200)
@@ -71,6 +78,13 @@ class Jeonatra
     @clue4 = @category.clues.find_by_value(800)
     @clue5 = @category.clues.find_by_value(1000)
     erb :cluesByCategory
+  end
+
+  post '/categories/:category/update' do
+    @category = Category.find_by_id(params[:category])
+    name = params[:name]
+    @category.update(:name => name)
+    "Actualizado"
   end
 
   post '/categories/:category/clues/update' do
@@ -130,6 +144,11 @@ class Jeonatra
     end
   end
 
+  get '/classrooms/:classroom/students' do
+    @students = Student.all
+    erb :studentsByClassroom
+  end
+
   get '/classrooms/:classroom/delete' do
     @classroom = Classroom.find_by_id(params[:classroom])
     @classroom.destroy
@@ -137,8 +156,11 @@ class Jeonatra
     redirect to('/classrooms')
   end
 
-  get '/students/new' do
-    erb :addStudents
+  post '/classrooms/:classroom/update' do
+    @classroom = Classroom.find_by_id(params[:classroom])
+    name = params[:name]
+    @classroom.update(:name => name)
+    "Actualizado"
   end
 
   post '/game/new' do
@@ -179,6 +201,29 @@ class Jeonatra
     end
 
     erb :newGameOptions
+
+  post '/students/new' do
+    @student = Student.new(params[:student])
+    if @student.save
+      session[:flash] = "Se ha agregado el alumno."
+      redirect to("/classrooms/#{@student.classroom.id}/students")
+    else
+      "No se pudo guardar"
+    end
+  end
+
+  post '/students/:student/update' do
+    @student = Student.find_by_id(params[:student])
+    name = params[:name]
+    @student.update(:name => name)
+    "Actualizado"
+  end
+
+  get '/students/:student/delete' do
+    @student = Student.find_by_id(params[:student])
+    @student.destroy
+    session[:flash] = "Se ha elimiando el alumno"
+    redirect to('/classrooms/:classroom/students')
   end
 
   post '/game/' do
