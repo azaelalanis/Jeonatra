@@ -211,12 +211,9 @@ categories.each do |attributes|
 end
 
 clues.each do |attributes|
-  Clue.create do |a|
-    a.value = attributes[:value]
-    a.description = attributes[:description]
-    a.right = attributes[:right]
-    a.wrong1 = attributes[:wrong1]
-    a.wrong2 = attributes[:wrong2]
-    a.category_id = attributes[:category_id]
+  clue = Clue.where(value: attributes[:value], category_id: attributes[:category_id])
+  clue.update(value: attributes[:value], description: attributes[:description],
+              right: attributes[:right], wrong1: attributes[:wrong1], wrong2: attributes[:wrong2],
+              category_id: attributes[:category_id])
   end
 end
