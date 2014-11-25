@@ -1,5 +1,7 @@
 professors = [
-              {:name=>"Jose Raul Perez", :email=>"jl.loya@gmail.com", :password=>"prueba", :first_login=>true, :login_attempts=>0, :blocked_time=>Time.now}
+              {:name=>"Jose Raul Perez", :email=>"jl.loya@gmail.com", :password=>"prueba", :first_login=>true, :login_attempts=>0, :blocked_time=>Time.now},
+              {:name=>"Jose Luis Loya", :email=>"ele.loya@gmail.com", :password=>"prueba", :first_login=>false, :login_attempts=>0, :blocked_time=>Time.now}
+
 ]
 
 classrooms = [
@@ -211,9 +213,15 @@ categories.each do |attributes|
 end
 
 clues.each do |attributes|
+
   clue = Clue.where(value: attributes[:value], category_id: attributes[:category_id])
-  clue.update(value: attributes[:value], description: attributes[:description],
-              right: attributes[:right], wrong1: attributes[:wrong1], wrong2: attributes[:wrong2],
-              category_id: attributes[:category_id])
-  end
+
+
+    clue[0].value = attributes[:value]
+    clue[0].description = attributes[:description]
+    clue[0].right = attributes[:right]
+    clue[0].category_id = attributes[:category_id]
+    clue[0].save
+
+
 end
