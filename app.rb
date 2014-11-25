@@ -63,6 +63,13 @@ class Jeonatra
     erb :categoriesByTopic
   end
 
+  post '/topics/:topic/update' do
+    @topic = Topic.find_by_id(params[:topic])
+    name = params[:name]
+    @topic.update(:name => name)
+    "Actualizado"
+  end
+
   get '/categories/:category/clues' do
     @category = Category.find_by_id(params[:category])
     @clue1 = @category.clues.find_by_value(200)
@@ -71,6 +78,13 @@ class Jeonatra
     @clue4 = @category.clues.find_by_value(800)
     @clue5 = @category.clues.find_by_value(1000)
     erb :cluesByCategory
+  end
+
+  post '/categories/:category/update' do
+    @category = Category.find_by_id(params[:category])
+    name = params[:name]
+    @category.update(:name => name)
+    "Actualizado"
   end
 
   post '/categories/:category/clues/update' do

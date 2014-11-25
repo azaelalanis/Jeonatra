@@ -5,11 +5,20 @@ function changeCategory(id) {
   if (name != null) {
     document.getElementById(id).innerHTML = html2;
   }
+  updateCategory(id, name);
 }
 
-  //async_update_category(id,valor);
-
-
+function updateCategory(id, name)
+{
+  $.ajax({
+    type: "POST",
+    url: "/categories/"+id+"/update",
+    data: "name=" + name,
+    success: function(msg){
+      alert( "Data Saved: " + msg );
+    }
+  });
+}
 </script>
 
 <h1>Categorias por tema</h1>

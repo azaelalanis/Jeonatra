@@ -7,7 +7,21 @@ function changeTopic(id) {
   if (name != null) {
     document.getElementById(id).innerHTML = html2;
   }
+  updateTopic(id,name);
 }
+
+function updateTopic(id, name)
+{
+  $.ajax({
+    type: "POST",
+    url: "/topics/"+id+"/update",
+    data: "name=" + name,
+    success: function(msg){
+      alert( "Data Saved: " + msg );
+    }
+  });
+}
+
 </script>
 
 <h1>Lista de temas</h1>
