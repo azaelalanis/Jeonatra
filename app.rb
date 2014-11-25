@@ -73,6 +73,26 @@ class Jeonatra
     erb :cluesByCategory
   end
 
+  post '/categories/:category/clues/update' do
+    "#{params[:clues].inspect}"
+    @category = Category.find_by_id(params[:category])
+
+    @clue1 = @category.clues.find_by_value(200)
+    @clue2 = @category.clues.find_by_value(400)
+    @clue3 = @category.clues.find_by_value(600)
+    @clue4 = @category.clues.find_by_value(800)
+    @clue5 = @category.clues.find_by_value(1000)
+
+    @clue1.update(params[:clues][0])
+    @clue2.update(params[:clues][1])
+    @clue3.update(params[:clues][2])
+    @clue4.update(params[:clues][3])
+    @clue5.update(params[:clues][4])
+
+    redirect to("/categories/#{@category.id}/clues")
+
+  end
+
   post '/categories/new' do
     @category = Category.new(params[:category])
     if @category.save
@@ -116,9 +136,11 @@ class Jeonatra
   end
 
   get '/game/:gameid' do
-    game = Game.find_by_id(params[:game_id])
-    game.topics.each do |topic|
-      @categories << topic.categories
+    #game = Game.find_by_id(params[:game_id])
+    #game.topics.each do |topic|
+    @categories = []
+    Category.all.each do |category|
+      @categories << category
     end
 
     @selected_categories = @categories.sample(6)
