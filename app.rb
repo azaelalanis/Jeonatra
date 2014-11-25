@@ -67,6 +67,24 @@ class Jeonatra
     erb :cluesByCategory
   end
 
+  post '/categories/new' do
+    @category = Category.new(params[:category])
+    if @category.save
+      session[:flash] = "Se ha agregado la categoria."
+      redirect to("/topics/#{@category.topic.id}/categories")
+    else
+      "No se pudo guardar"
+    end
+  end
+
+  get '/categories/:category/delete' do
+    @category = Category.find_by_id(params[:category])
+    url_path = "/topics/#{@category.topic.id}/categories"
+    @category.destroy
+    session[:flash] = "Se ha elimiando la categoria"
+    redirect to(url_path)
+  end
+
   get '/profiles/:profile/edit' do
     erb :editProfile
   end
