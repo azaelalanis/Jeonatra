@@ -64,6 +64,12 @@ class Jeonatra
   end
 
   get '/categories/:category/clues' do
+    @category = Category.find_by_id(params[:category])
+    @clue1 = @category.clues.find_by_value(200)
+    @clue2 = @category.clues.find_by_value(400)
+    @clue3 = @category.clues.find_by_value(600)
+    @clue4 = @category.clues.find_by_value(800)
+    @clue5 = @category.clues.find_by_value(1000)
     erb :cluesByCategory
   end
 
