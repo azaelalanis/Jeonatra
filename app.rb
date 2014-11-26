@@ -145,7 +145,8 @@ class Jeonatra
   end
 
   get '/classrooms/:classroom/students' do
-    @students = Student.all
+    @classroom = Classroom.find_by_id(params[:classroom])
+    @students = @classroom.students
     erb :studentsByClassroom
   end
 
@@ -297,7 +298,7 @@ class Jeonatra
     @player1.save
     @player2.save
     @player3.save
-    
+
     "#{@players.to_yaml}"
   end
 
